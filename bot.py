@@ -35,7 +35,7 @@ def echo_all(message):
 
 
 if __name__ == '__main__':
-    now = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    now = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0, year=2020)
     query = session.query(User).filter(User.birthday == now).all()
     for user in query:
         bot.send_message(user.chat_tg_id, f'Happy B-DAY @{user.nickname}')
