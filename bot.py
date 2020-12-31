@@ -31,11 +31,12 @@ class User(Base):
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
-    bot.reply_to(message, message.text)
+    print('hello')
 
 
 if __name__ == '__main__':
     now = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0, year=2020)
     query = session.query(User).filter(User.birthday == now).all()
+
     for user in query:
-        bot.send_message(user.chat_tg_id, f'Happy B-DAY @{user.nickname}')
+        bot.send_message(user.chat_tg_id, f'Happy B-DAY @{user.nickname}. Sorry, что меня написал бездарный создатель, который не может в спину убить афк стоящего врага, который отошел за чаем. В целом, это я сам себя написал, просто использовал руки Чукера, которые всё время вписывали в код pick Veno > buy desolator > lose')
